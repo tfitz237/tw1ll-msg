@@ -1,0 +1,26 @@
+{
+  "chats": {
+    "chat_id1": {
+      "topic": "New Chat",
+      "lastMessage": "This is a sample last message.",
+      "timestamp": "1486586663"
+    }
+  },
+  "users": {
+    "user_id1": {
+      "email": "test@test.com",
+      "displayName": "test",
+      "uid": "user_id1"
+      "rooms": {
+        "chat_id1": "1486586663"
+      }
+    }
+  },
+  "messages": {
+    "chat_id1": {
+      "user": "user_id1",
+      "timestamp": "1486586663",
+      "message": "This is a sample last message."
+    }
+  },
+}

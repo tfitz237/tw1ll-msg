@@ -1,0 +1,24 @@
+{
+  "name": "reactTutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^15.0.6",
+    "@types/react-dom": "^0.14.22",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.5",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "firebase": "^3.6.8",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
