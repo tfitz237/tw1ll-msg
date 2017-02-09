@@ -1,8 +1,9 @@
 import * as React from "react";
-import ChatNav from "./ChatNav";
+import {ChatNav} from "./ChatNav";
 import ChatContent from "./ChatContent";
 import LoginBox from "../LoginBox";
 import fire from "../tools/firebase";
+import Header from "../Layout/Header";
 
 
 class Chat extends React.Component<any, any> {
@@ -24,24 +25,9 @@ class Chat extends React.Component<any, any> {
 
     render() {
 
-        var header = (
-            <header className="mdl-layout__header">
-                <div className="mdl-layout__header-row">
-                    <div className="mdl-layout-icon"></div>
-                    <span className="mdl-layout-title">{this.state.title}</span>
-                    <div className="mdl-divider">
-                        {this.state.user != null &&<button className="mdl-button mdl-js-button mdl-js-ripple-effect" onClick={fire.sign.out}>
-                            <i className="material-icons">exit_to_app</i>
-                        </button>}
-
-                    </div>
-                </div>
-            </header>
-
-        );
         return (
             <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-                {header}
+                <Header title={this.state.title} user={this.state.user} />
                 <ChatNav title={this.state.title} user={this.state.user} updateContent={this.updateContent}  />
                 <main className="mdl-layout__content">
                     <div className="page-content">

@@ -31,7 +31,7 @@ fire.user = function () {
 };
 fire.sign["in"] = function (user, pass) {
     fire.auth.signInWithEmailAndPassword(user, pass)["catch"](function (e) {
-        mdl_1.snackbar(e.message);
+        mdl_1["default"].snackbar(e.message);
     });
 };
 fire.sign.out = function () {
@@ -47,7 +47,7 @@ fire.sign.up = function (user, pass) {
             uid: user.uid
         });
     })["catch"](function (e) {
-        mdl_1.snackbar(e.message);
+        mdl_1["default"].snackbar(e.message);
     });
 };
 fire.sign.update = function (user) {

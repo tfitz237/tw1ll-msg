@@ -2,7 +2,7 @@
  * Created by fitzpatt on 2/7/2017.
  */
 import * as Firebase from "firebase";
-import {snackbar} from "./mdl";
+import mdl from "./mdl";
 
 let fire = {
     db: null,
@@ -35,7 +35,7 @@ fire.user = function() {
 
 fire.sign.in = function(user,pass) {
     fire.auth.signInWithEmailAndPassword(user,pass).catch((e) => {
-        snackbar(e.message);
+        mdl.snackbar(e.message);
     });
 };
 fire.sign.out = function() {
@@ -52,7 +52,7 @@ fire.sign.up = function(user,pass) {
             uid: user.uid
         });
     }).catch((e) => {
-        snackbar(e.message);
+        mdl.snackbar(e.message);
     });
 };
 

@@ -17,20 +17,24 @@ var Chat = (function (_super) {
         _this.updateContent = function (id) {
             _this.setState({ roomId: id });
         };
-        _this.state = { title: 'Chat', user: firebase_1["default"].user() };
-        firebase_1["default"].auth.onAuthStateChanged(function (user) {
+        _this.state = { title: 'Chat', user: firebase_1.default.user() };
+        firebase_1.default.auth.onAuthStateChanged(function (user) {
             _this.setState({ user: user });
         });
         return _this;
     }
     Chat.prototype.render = function () {
-        return (React.createElement("div", { className: "mdl-layout mdl-js-layout mdl-layout--fixed-header" },
-            React.createElement(Header_1["default"], { title: this.state.title, user: this.state.user }),
-            React.createElement(ChatNav_1.ChatNav, { title: this.state.title, user: this.state.user, updateContent: this.updateContent }),
-            React.createElement("main", { className: "mdl-layout__content" },
-                React.createElement("div", { className: "page-content" }, this.state.user ? (React.createElement(ChatContent_1["default"], { roomId: this.state.roomId })) : (React.createElement(LoginBox_1["default"], null))))));
+        return (<div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+                <Header_1.default title={this.state.title} user={this.state.user}/>
+                <ChatNav_1.ChatNav title={this.state.title} user={this.state.user} updateContent={this.updateContent}/>
+                <main className="mdl-layout__content">
+                    <div className="page-content">
+                        {this.state.user ? (<ChatContent_1.default roomId={this.state.roomId}/>) : (<LoginBox_1.default />)}
+                    </div>
+                </main>
+            </div>);
     };
     return Chat;
 }(React.Component));
-exports.__esModule = true;
-exports["default"] = Chat;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = Chat;
