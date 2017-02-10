@@ -15,6 +15,7 @@ class MessageList extends React.Component<any,IStateMessageList> {
                 lastMessage: null,
                 status: null,
                 timestamp: null,
+                users: null
             },
             messages: {}
         }

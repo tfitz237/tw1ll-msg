@@ -61,7 +61,7 @@ let MessageModel = {
                         let room = snap.val();
                         messages = messages.sort((x: IMessage, y: IMessage) => x.timestamp - y.timestamp);
                         component.setState({messages: messages, room: room});
-                        mdl.scroll();
+                        mdl.scrollBottom();
 
                     });
                 });

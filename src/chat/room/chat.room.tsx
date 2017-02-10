@@ -5,6 +5,7 @@ export interface IRoom {
     lastMessage: string,
     status: boolean,
     timestamp: number,
+    users: any
 }
 class Room extends React.Component<any,any> {
     render() {

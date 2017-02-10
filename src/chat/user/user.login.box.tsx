@@ -1,5 +1,5 @@
 import * as React from "react";
-import fire from "../utilities/firebase";
+import fire from "../../utilities/firebase";
 
 interface ILoginBox {
     email: string,

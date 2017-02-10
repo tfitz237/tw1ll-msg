@@ -24,7 +24,7 @@ class MessageInput extends React.Component<any, any> {
             this.NewMessage.roomId = this.props.roomId;
             MessageModel.sendMessage(this.NewMessage);
             e.target.value = "";
-            mdl.scroll();
+            mdl.scrollBottom();
         }
 
     }

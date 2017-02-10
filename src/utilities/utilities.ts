@@ -1,4 +1,4 @@
-export function findIndexByProp (prop, val, array) {
+export function findIndexByProp (prop: string, val: string, array: any) {
     var newIdx = -1;
     for(var i = 0; i < array.length; i++) {
         if(array[i][prop] == val) {
@@ -23,4 +23,8 @@ export interface IError {
     name: string;
     message: string;
     timestamp: number;
+}
+
+export function toClassName(name: string) {
+    return name.toLowerCase().replace(/\s/g, "-");
 }

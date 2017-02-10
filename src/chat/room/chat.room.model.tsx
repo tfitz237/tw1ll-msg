@@ -13,6 +13,25 @@ let RoomModel =  {
     },
 
 
+    createRoom: (room: IRoom) => {
+        return new Promise((res, rej) => {
+            room.timestamp = Date.now();
+            room.users[fire.user().uid] = fire.user().uid;
+            let newRoom = fire.db.ref("rooms").push(room);
+            let userCount = room.users.length;
+            let i = 0;
+            for (let key in room.users) {
+                let user = room.users[i];
+                fire.db.ref("users/" + user + "/rooms/" + newRoom.key).set(this.chat["timestamp"]);
+                i++;
+                if(i == userCount) {
+                    res(i);
+                }
+            }
+
+
+        });
+    },
 
     createRoomList: (component, rooms) => {
         if (rooms != null && rooms.length > 0) {
@@ -36,7 +55,7 @@ let RoomModel =  {
                 let rooms = [];
                 if (roomIds) {
                     let roomCount = Object.keys(roomIds).length;
-                    let i = 1;
+                    let i = 0;
                     new Promise((res, rej) => {
                         for (let roomId in roomIds) {
                             fire.db.ref("rooms/" + roomId).on("value", (snap) => {

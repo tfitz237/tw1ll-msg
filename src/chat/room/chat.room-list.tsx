@@ -1,7 +1,7 @@
 import * as React from "react";
 import fire from "../../utilities/firebase";
 import mdl from "../../utilities/mdl";
-import NewChatDialog from "../NewChatDialog";
+import RoomDialog from "./chat.room-dialog";
 import RoomModel from "./chat.room.model";
 import {IRoom} from "./chat.room";
 
@@ -12,7 +12,7 @@ interface IChatNav {
 }
 
 class RoomList extends React.Component<any,IChatNav> {
-    newChatDialog: NewChatDialog;
+    newRoomDialog: RoomDialog;
     ref: any;
     constructor(props) {
         super(props);
@@ -29,8 +29,8 @@ class RoomList extends React.Component<any,IChatNav> {
         mdl.toggleDrawer();
     };
 
-    newChatWindow = () => {
-        this.newChatDialog.newChat().then(() => {
+    newRoomWindow = () => {
+        this.newRoomDialog.newChat().then(() => {
             this.updateList();
         });
     };
@@ -50,11 +50,11 @@ class RoomList extends React.Component<any,IChatNav> {
         let list = RoomModel.createRoomList(this, this.state.rooms);
         return (
             <nav className="mdl-navigation">
+                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={this.newRoomWindow}>+ New Chat</a>
                 <ul className="mdl-list">
                     {list}
                 </ul>
-                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick={this.newChatWindow}>+ New Chat</a>
-                <NewChatDialog ref={(r) => this.newChatDialog = r} />
+                <RoomDialog ref={(r) => this.newRoomDialog = r} />
             </nav>
         );
 
