@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+}
+.mdl-list__item.pointer {
+    cursor: pointer;
+}
+.chat-message-list {
+    padding: 0 5px;
+}
+
+
+.chat-message-footer {
+    padding: 5px;
+    background-color: #EEE;
+    border-top: 1px solid lightgray;
+}

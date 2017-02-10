@@ -5,7 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var React = require("react");
-var Model_1 = require("./Model");
+var Model_1 = require("./MessageModel");
 var ChatContent = (function (_super) {
     __extends(ChatContent, _super);
     function ChatContent(props) {

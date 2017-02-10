@@ -43,16 +43,19 @@ fire.sign.out = function() {
 
 };
 fire.sign.up = function(user,pass) {
-    fire.auth.createUserWithEmailAndPassword(user,pass).then(() => {
-        let user = fire.user();
-        fire.db.ref("users/"+user.uid).set({
-            name: user.displayName,
-            email: user.email,
-            photoUrl: user.photoURL,
-            uid: user.uid
+    new Firebase.Promise((resolve, reject) => {
+        fire.auth.createUserWithEmailAndPassword(user, pass).then(() => {
+            let user = fire.user();
+            fire.db.ref("users/" + user.uid).set({
+                name: user.email.split("@")[0],
+                email: user.email,
+                photoUrl: user.photoURL,
+                uid: user.uid
+            }).then(() =>{
+            });
+        }).catch((e) => {
+            mdl.snackbar(e.message);
         });
-    }).catch((e) => {
-        mdl.snackbar(e.message);
     });
 };
 

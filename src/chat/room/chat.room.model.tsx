@@ -1,0 +1,63 @@
+import fire from "../../utilities/firebase";
+import * as React from "react";
+import {toArray} from "../../utilities/utilities";
+import Message, {IMessage} from "../message/chat.message";
+import Room from "./chat.room";
+import {Promise} from "firebase";
+import {IRoom} from "./chat.room";
+
+let RoomModel =  {
+
+    selectUser: (userId: string) => {
+
+    },
+
+
+
+    createRoomList: (component, rooms) => {
+        if (rooms != null && rooms.length > 0) {
+            let roomList = rooms.map((room) => {
+                return (<Room key={room.roomId}
+                              roomId={room.roomId}
+                              topic={room.topic}
+                              message={room.lastMessage}
+                              updateContent={component.updateContent} />
+                );
+            });
+            return roomList;
+        }
+        return null;
+    },
+
+
+    updateRoomList: (component) => {
+            fire.db.ref("users/" + fire.user().uid + "/rooms").on("value", (snap) => {
+                let roomIds = snap.val();
+                let rooms = [];
+                if (roomIds) {
+                    let roomCount = Object.keys(roomIds).length;
+                    let i = 1;
+                    new Promise((res, rej) => {
+                        for (let roomId in roomIds) {
+                            fire.db.ref("rooms/" + roomId).on("value", (snap) => {
+                                let room = snap.val();
+                                if (room) {
+                                    room.roomId = roomId;
+                                    rooms.push(room);
+                                    i++;
+                                    if (i == roomCount) {
+                                        res(i);
+                                    }
+                                }
+                            });
+                        }
+                    }).then((e) => {
+
+                        component.setState({rooms:rooms});
+                    });
+                }
+            });
+    }
+};
+
+export default RoomModel;

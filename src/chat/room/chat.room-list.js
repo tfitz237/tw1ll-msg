@@ -7,8 +7,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 var React = require("react");
 var firebase_1 = require("../tools/firebase");
 var mdl_1 = require("../tools/mdl");
-var NewChatDialog_1 = require("./NewChatDialog");
-var Model_1 = require("./Model");
+var NewChatDialog_1 = require("./../NewChatDialog");
+var Model_1 = require("./MessageModel");
 var ChatNav = (function (_super) {
     __extends(ChatNav, _super);
     function ChatNav(props) {

@@ -1,11 +1,11 @@
 import * as React from "react";
-import fire from "../tools/firebase";
-import {toArray} from "../tools/utilities";
+import fire from "../utilities/firebase";
+import {toArray} from "../utilities/utilities";
 import {Promise} from "firebase";
 
 class NewChatDialog extends React.Component<any,any> {
     chat: any = {
-            topic: "New Chat",
+            topic: "New chat",
             lastMessage: " ",
             users: {},
             timestamp: null

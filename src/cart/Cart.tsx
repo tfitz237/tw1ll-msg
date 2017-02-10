@@ -1,8 +1,8 @@
 import * as React from "react";
-import fire from "../tools/firebase";
+import fire from "../utilities/firebase";
 import {IItem} from "./Item";
 import {CartItem} from "./Cart.Item";
-import {findIndexByProp} from "../tools/utilities";
+import {findIndexByProp} from "../utilities/utilities";
 
 const user = 'xyz';
 

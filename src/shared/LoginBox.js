@@ -5,7 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var React = require("react");
-var firebase_1 = require("./tools/firebase");
+var firebase_1 = require("././firebase");
 var LoginBox = (function (_super) {
     __extends(LoginBox, _super);
     function LoginBox(props) {

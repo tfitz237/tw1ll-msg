@@ -1,9 +1,15 @@
 import * as React from "react";
 
-class RoomLink extends React.Component<any,any> {
+export interface IRoom {
+    topic: string,
+    lastMessage: string,
+    status: boolean,
+    timestamp: number,
+}
+class Room extends React.Component<any,any> {
     render() {
         return (
-                <li className="mdl-list__item mdl-list__item--three-line" id={this.props.roomId} key={this.props.roomId} onClick={this.props.updateContent}>
+                <li className="mdl-list__item mdl-list__item--three-line pointer" id={this.props.roomId} onClick={this.props.updateContent}>
                     <span className="mdl-list__item-primary-content" >
                         <i className="material-icons mdl-list__item-avatar">person</i>
                         <span>{this.props.topic}</span>
@@ -23,4 +29,4 @@ class RoomLink extends React.Component<any,any> {
 
 
 
-export default RoomLink
+export default Room

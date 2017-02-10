@@ -10,7 +10,7 @@
     "user_id1": {
       "email": "test@test.com",
       "displayName": "test",
-      "uid": "user_id1"
+      "uid": "user_id1",
       "rooms": {
         "chat_id1": "1486586663"
       }
@@ -22,5 +22,5 @@
       "timestamp": "1486586663",
       "message": "This is a sample last message."
     }
-  },
+  }
 }

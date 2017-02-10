@@ -1,6 +1,6 @@
 import * as React from "react";
 import {IItem} from "./Item";
-import fire from "../tools/firebase";
+import fire from "../utilities/firebase";
 
 const user = 'xyz';
 
